@@ -66,7 +66,8 @@ const WordCard = ({ word }: WordCardProps) => {
           flipped ? "invisible" : "visible"
         )}>
           <p className="text-sm text-gray-500 mb-2 self-start">{getDifficultyText()}</p>
-          <h3 className="font-ottoman text-4xl mb-2 text-[#2d3748]">{word.ottoman}</h3>
+          {/* Osmanlıca karakterleri gizlendi */}
+          <h3 className="font-medium text-lg mb-2 text-[#2d3748]">{word.turkish}</h3>
           <p className="text-sm text-gray-600">Kartı çevirmek için tıklayın</p>
           
           {totalAttempts > 0 && (
@@ -85,9 +86,7 @@ const WordCard = ({ word }: WordCardProps) => {
           <h3 className="font-medium text-lg mb-2">{word.turkish}</h3>
           <p className="mb-3 text-sm">{word.meaning}</p>
           
-          {word.exampleOttoman && (
-            <p className="font-ottoman text-lg mb-1 text-[#2d3748]">{word.exampleOttoman}</p>
-          )}
+          {/* Osmanlıca örnek gizlendi */}
           
           {word.exampleTurkish && (
             <p className="text-sm italic mb-4">{word.exampleTurkish}</p>

@@ -443,7 +443,7 @@ export class MemStorage implements IStorage {
         { ottoman: "[Osmanlıca] پیدا", turkish: "peydâ etmek", meaning: "Elde etmek" }
       ];
       
-      // İkinci grup - yeni eklenecek 50 kelime (kelimeler.txt'den alınmıştır)
+      // İkinci grup - önceki eklenen 50 kelime (kelimeler.txt'den alınmıştır)
       const group2Words = [
         { ottoman: "[Osmanlıca] حالیا", turkish: "hâliyâ", meaning: "Hâlen, şu anda" },
         { ottoman: "[Osmanlıca] متقاعد", turkish: "mütekâid", meaning: "Emekli" },
@@ -497,8 +497,62 @@ export class MemStorage implements IStorage {
         { ottoman: "[Osmanlıca] عدم", turkish: "adem", meaning: "Yokluk" }
       ];
       
+      // Üçüncü grup - yeni eklenecek 50 kelime daha (kelimeler.txt'den alınmıştır)
+      const group3Words = [
+        { ottoman: "[Osmanlıca] کافی", turkish: "kâfî", meaning: "Yeterli" },
+        { ottoman: "[Osmanlıca] گذران", turkish: "güzerân", meaning: "Geçmek" },
+        { ottoman: "[Osmanlıca] رابع", turkish: "râbi'", meaning: "Dördüncü" },
+        { ottoman: "[Osmanlıca] جالس", turkish: "câlis", meaning: "Cülus eden, oturan" },
+        { ottoman: "[Osmanlıca] سریر", turkish: "serîr", meaning: "Taht, koltuk" },
+        { ottoman: "[Osmanlıca] سلطنت", turkish: "saltanat", meaning: "Sultanlık, padişahlık" },
+        { ottoman: "[Osmanlıca] جلوس", turkish: "cülûs", meaning: "Oturmak, tahta geçmek" },
+        { ottoman: "[Osmanlıca] اعطا", turkish: "i'tâ", meaning: "Vermek" },
+        { ottoman: "[Osmanlıca] والده", turkish: "vâlide", meaning: "Anne" },
+        { ottoman: "[Osmanlıca] اشقیا", turkish: "eşkıyâ", meaning: "Şakiler, isyancılar" },
+        { ottoman: "[Osmanlıca] تلطیف", turkish: "taltîf", meaning: "Ödüllendirme" },
+        { ottoman: "[Osmanlıca] تأیید", turkish: "te'yîd", meaning: "Pekiştirme, sağlamlaştırma" },
+        { ottoman: "[Osmanlıca] مطالعه", turkish: "mutâlaa", meaning: "Değerlendirme, inceleme" },
+        { ottoman: "[Osmanlıca] خزائن", turkish: "hazâin", meaning: "Hazineler" },
+        { ottoman: "[Osmanlıca] بغاة", turkish: "bugāt", meaning: "Bagiler, isyancılar" },
+        { ottoman: "[Osmanlıca] ابذال", turkish: "ibzâl", meaning: "Bolca harcama" },
+        { ottoman: "[Osmanlıca] اسراف", turkish: "isrâf", meaning: "Bolca harcama" },
+        { ottoman: "[Osmanlıca] نقود", turkish: "nukūd", meaning: "Nakit paralar" },
+        { ottoman: "[Osmanlıca] مدخره", turkish: "müddehara", meaning: "Biriktirilen" },
+        { ottoman: "[Osmanlıca] تلف", turkish: "telef olma", meaning: "Yok olmak" },
+        { ottoman: "[Osmanlıca] مبنی", turkish: "mebnî", meaning: "İçin, dolayı" },
+        { ottoman: "[Osmanlıca] تجار", turkish: "tüccâr", meaning: "Tacirler, ticaret yapanlar" },
+        { ottoman: "[Osmanlıca] متمولین", turkish: "mütemevvilîn", meaning: "Çok parası olanlar" },
+        { ottoman: "[Osmanlıca] استدانه", turkish: "istidâne", meaning: "Borçlanma" },
+        { ottoman: "[Osmanlıca] سلاطین", turkish: "selâtîn", meaning: "Sultanlar, padişahlar" },
+        { ottoman: "[Osmanlıca] ماضیه", turkish: "mâzıye", meaning: "Geçen, önceki" },
+        { ottoman: "[Osmanlıca] سیم", turkish: "sîm", meaning: "Gümüş" },
+        { ottoman: "[Osmanlıca] زر", turkish: "zerr", meaning: "Altın" },
+        { ottoman: "[Osmanlıca] مصنوع", turkish: "masnû'", meaning: "Yapılmış" },
+        { ottoman: "[Osmanlıca] ادوات", turkish: "edevât", meaning: "Edat, alet, avadanlık" },
+        { ottoman: "[Osmanlıca] ضرب", turkish: "darb", meaning: "Vurma, basma" },
+        { ottoman: "[Osmanlıca] سکه", turkish: "sikke", meaning: "Paralara vurulan damga" },
+        { ottoman: "[Osmanlıca] ایفا", turkish: "îfâ", meaning: "Yerine getirme" },
+        { ottoman: "[Osmanlıca] انعام", turkish: "n'âm", meaning: "Bahşiş, hediye verme" },
+        { ottoman: "[Osmanlıca] تقریبا", turkish: "takrîben", meaning: "Yaklaşık olarak" },
+        { ottoman: "[Osmanlıca] اقچه", turkish: "akçe", meaning: "Gümüş para" },
+        { ottoman: "[Osmanlıca] ریال", turkish: "riyâl", meaning: "Gümüş sikkesi" },
+        { ottoman: "[Osmanlıca] نسبت", turkish: "nisbet", meaning: "Oran" },
+        { ottoman: "[Osmanlıca] توضیح", turkish: "tavzîh", meaning: "İzah etme, açıklama" },
+        { ottoman: "[Osmanlıca] غارتکار", turkish: "gāret-kâr", meaning: "Yağmacı" },
+        { ottoman: "[Osmanlıca] واردات", turkish: "vâridât", meaning: "Gelirler" },
+        { ottoman: "[Osmanlıca] تأدیب", turkish: "te'dîb", meaning: "Terbiye etme cezalandırma" },
+        { ottoman: "[Osmanlıca] تنکیل", turkish: "tenkîl", meaning: "Uzaklaştırma, ceza verme" },
+        { ottoman: "[Osmanlıca] امور", turkish: "umûr", meaning: "İşler" },
+        { ottoman: "[Osmanlıca] کثیره", turkish: "kesîre", meaning: "Çok" },
+        { ottoman: "[Osmanlıca] مالامال", turkish: "mâl-â-mâl", meaning: "Dopdolu" },
+        { ottoman: "[Osmanlıca] کما ینبغی", turkish: "kemâ-yenbağî", meaning: "Gerektiği gibi" },
+        { ottoman: "[Osmanlıca] نظام", turkish: "nizâm vermek", meaning: "Düzene, yoluna koymak" },
+        { ottoman: "[Osmanlıca] مصارفات", turkish: "mesârifât", meaning: "Masraflar, harcamalar" },
+        { ottoman: "[Osmanlıca] وظائف", turkish: "vezâif", meaning: "Vazifeler, ücretler" }
+      ];
+      
       // Tüm kelimeleri birleştir
-      const allWords = [...group1Words, ...group2Words];
+      const allWords = [...group1Words, ...group2Words, ...group3Words];
       
       // Kelimeleri ekle
       let count = 0;
