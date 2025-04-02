@@ -6,6 +6,7 @@ import StatsSummary from '@/components/StatsSummary';
 import DailyWord from '@/components/DailyWord';
 import WordCard from '@/components/WordCard';
 import StudyModes from '@/components/StudyModes';
+import SuggestedWords from '@/components/SuggestedWords';
 import { useWordsWithProgress } from '@/hooks/useWords';
 import { LayoutGrid, List } from 'lucide-react';
 
@@ -39,6 +40,9 @@ const Home = () => {
       
       {/* Featured Word */}
       <DailyWord />
+      
+      {/* Suggested Words */}
+      <SuggestedWords userId={userId} />
       
       {/* Word Cards */}
       <section className="mb-10">

@@ -251,6 +251,17 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
   
+  api.get("/suggested-words/:userId", async (req: Request, res: Response) => {
+    try {
+      const userId = parseInt(req.params.userId, 10);
+      const count = req.query.count ? parseInt(req.query.count as string, 10) : 5;
+      const suggestedWords = await storage.getSuggestedWords(userId, count);
+      res.json(suggestedWords);
+    } catch (error) {
+      res.status(500).json({ message: "Failed to get suggested words" });
+    }
+  });
+  
   // Mount the API router
   app.use("/api", api);
   

@@ -29,6 +29,7 @@ export interface IStorage {
   getRelatedWords(wordId: number): Promise<Word[]>;
   addRelatedWord(wordId: number, relatedWordId: number): Promise<void>;
   getDailyWord(): Promise<WordWithRelated | undefined>;
+  getSuggestedWords(userId: number, count?: number): Promise<WordWithProgress[]>;
   
   // Progress operations
   getUserProgress(userId: number, wordId: number): Promise<Progress | undefined>;
@@ -698,6 +699,71 @@ export class MemStorage implements IStorage {
     }
     
     return wordsWithProgress;
+  }
+  
+  async getSuggestedWords(userId: number, count: number = 5): Promise<WordWithProgress[]> {
+    // Tüm kelimeleri ilerleme bilgisiyle birlikte al
+    const wordsWithProgress = await this.getWordsWithProgress(userId);
+    
+    // 1. Hiç çalışılmamış kelimeleri bul
+    const notStudiedWords = wordsWithProgress.filter(word => !word.progress);
+    
+    // 2. Çalışılmış ama henüz uzmanlaşılmamış kelimeleri bul
+    const inProgressWords = wordsWithProgress.filter(word => 
+      word.progress && !word.progress.isMastered
+    );
+    
+    // 3. Uzmanlaşılmış ama tekrar edilmesi gereken kelimeleri bul
+    // Son çalışmadan bu yana 7 günden fazla zaman geçmiş olanlar
+    const lastWeek = new Date();
+    lastWeek.setDate(lastWeek.getDate() - 7);
+    
+    const reviewWords = wordsWithProgress.filter(word => 
+      word.progress && 
+      word.progress.isMastered && 
+      word.progress.lastPracticed && 
+      new Date(word.progress.lastPracticed) < lastWeek
+    );
+    
+    // Sonuçları birleştir ve önceliklendir:
+    // 1. Yeni çalışılmamış kelimeler
+    // 2. Çalışılmış ama uzmanlaşılmamış kelimeler
+    // 3. Tekrar edilmesi gereken kelimeler
+    let candidateWords = [
+      ...notStudiedWords,
+      ...inProgressWords,
+      ...reviewWords
+    ];
+    
+    // Eğer yeterli kelime yoksa, rastgele kelimeler ekle
+    if (candidateWords.length < count) {
+      const remainingWords = wordsWithProgress.filter(
+        word => !candidateWords.some(w => w.id === word.id)
+      );
+      
+      // Kalan kelimelerden rastgele ekle
+      while (candidateWords.length < count && remainingWords.length > 0) {
+        const randomIndex = Math.floor(Math.random() * remainingWords.length);
+        candidateWords.push(remainingWords[randomIndex]);
+        remainingWords.splice(randomIndex, 1);
+      }
+    }
+    
+    // Önerilen kelime sayısını sınırla ve karıştır
+    // Önce karıştır
+    candidateWords = this.shuffleArray(candidateWords);
+    // Sonra sınırla
+    return candidateWords.slice(0, count);
+  }
+  
+  // Yardımcı fonksiyon: Dizi elemanlarını karıştır (Fisher-Yates algoritması)
+  private shuffleArray<T>(array: T[]): T[] {
+    const result = [...array];
+    for (let i = result.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [result[i], result[j]] = [result[j], result[i]];
+    }
+    return result;
   }
 }
 
