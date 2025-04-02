@@ -1,0 +1,412 @@
+[
+  {
+    "ottoman": "Azimet",
+    "turkish": "Bârü",
+    "meaning": "Gitmek Kıyam etmek Başlamak, harekete geçmek (Duvar, burç Tekarrüb Yaklaşmak)"
+  },
+  {
+    "ottoman": "Mecâl",
+    "turkish": "Me’yüs",
+    "meaning": "olmamak İmkânı olmamak Metânet Sertlik, dayanıklılık (Üzgün, ümitsiz Nüzül İnmek)"
+  },
+  {
+    "ottoman": "Cümle",
+    "turkish": "Mir-i",
+    "meaning": "Bütün, tamamı Ümerâ Emirler, sancakbeyleri (mirân Beylerbeyi Kibâr Büyükler, önde gelenler)"
+  },
+  {
+    "ottoman": "Muhtâr",
+    "turkish": "Müşâvere",
+    "meaning": "Seçilmiş, seçkin İhtiyâr Kıdemli (Danışmak Cem’ olmak Toplanmak)"
+  },
+  {
+    "ottoman": "Kemâl",
+    "turkish": "Mukarrer",
+    "meaning": "mertebe Aşırı derecede Suübet Zorluk (olmak Açık, ortada olmak Tahrib Zarar vermek)"
+  },
+  {
+    "ottoman": "Bilâd",
+    "turkish": "Küffâr",
+    "meaning": "Beldeler, şehirler Ta’zib Açı çektirmek (Kâfirler, düşmanlar Bed-nihâd Kötü huylu)"
+  },
+  {
+    "ottoman": "Teveccüh",
+    "turkish": "Kasabât",
+    "meaning": "Yönelmek (Kasabalar Kurâ Karyeler, köyler)"
+  },
+  {
+    "ottoman": "Bikâ’",
+    "turkish": "Gâret",
+    "meaning": "Buk’alar, yerler, ülkeler Zıyâ’ Zay’alar, tarlalar (Yağma Hasâret Hasar verme)"
+  },
+  {
+    "ottoman": "Galebe",
+    "turkish": "A’dâ",
+    "meaning": "Üstünlük Nusret (İlahi) Yardım (Düşmalar Müris Getiren, neden olan)"
+  },
+  {
+    "ottoman": "İllâ",
+    "turkish": "Kabza",
+    "meaning": "Ançak, … hâriç Re’y Görüş, kanâat (El, hâkimiyet Tasarruf Kullanma, sahip olma)"
+  },
+  {
+    "ottoman": "Aid",
+    "turkish": "Menzil",
+    "meaning": "Dönen, kalan Mümânaat Engelleme (Konak Abd-i Faki’r Aciz kul, yazarın kendisi)"
+  },
+  {
+    "ottoman": "Kalile",
+    "turkish": "Meremmet",
+    "meaning": "Az İrkilmek Toplanmak (Tamir Ba’id Uzak)"
+  },
+  {
+    "ottoman": "Ratıb",
+    "turkish": "Câri",
+    "meaning": "Yumuşak Yâbis Kuru, sert (olmak Akmak Halk Yaratmak)"
+  },
+  {
+    "ottoman": "Aklâm",
+    "turkish": "Sa’b",
+    "meaning": "Kalemler Kâbil Mümkün, olabilir (Zor Mürür Geçmek)"
+  },
+  {
+    "ottoman": "Sengistân",
+    "turkish": "Ubür",
+    "meaning": "Taşlık yer Dağıstân Dağlık yer (Geçmek İhzâr Hazırlamak)"
+  },
+  {
+    "ottoman": "Câmüs",
+    "turkish": "İhdâs",
+    "meaning": "Manda Azim Büyük (etmek Ortaya çıkmak Mübâşeret Bir işe başlama, girişme)"
+  },
+  {
+    "ottoman": "Muhkem",
+    "turkish": "âsâr",
+    "meaning": "İyice, sıkıca Müctemi’ olmak Toplanmak (Eserler, izler, emâreler Subh Sabah)"
+  },
+  {
+    "ottoman": "Zâhir",
+    "turkish": "Zemin",
+    "meaning": "olmak Ortak çıkmak Vâhid Bir (Yeryüzü Guzât Gaziler)"
+  },
+  {
+    "ottoman": "Bir",
+    "turkish": "Diriğ",
+    "meaning": "uğurdan Hep birlikte Tiğ Kılıç (Esirgeme A’dâ Düşmanlar)"
+  },
+  {
+    "ottoman": "Hod",
+    "turkish": "Vech",
+    "meaning": "Kendi Levâzım Lazım olanlar (Yüz Farazâ Tutalım ki, diyelim ki)"
+  },
+  {
+    "ottoman": "Duhül",
+    "turkish": "Bâz",
+    "meaning": "Girme Şimşir Kılıç (Oyun Halâs olmak Kurtulmak)"
+  },
+  {
+    "ottoman": "Dildâr",
+    "turkish": "Fi’l-hâl",
+    "meaning": "Gönül alma Bevâr Yok olma, çürüme (Hemen, o anda Azim olmak Gitmek)"
+  },
+  {
+    "ottoman": "Cahim",
+    "turkish": "İnâyet",
+    "meaning": "Cehennem Lâşe Leş ((ilahi) Yardım Mel’ün Alçak)"
+  },
+  {
+    "ottoman": "Za’f",
+    "turkish": "Rüz",
+    "meaning": "Güçsüzlük, zafiyer Fütür Zayıflık, gevşeklik (Gündüz Şeb Gece)"
+  },
+  {
+    "ottoman": "Kemâl",
+    "turkish": "Nusret",
+    "meaning": "Tam, bütün, hepsi Avn Yardım (Yardım Zuhüra gelmek Ortaya çıkmak, belirmek)"
+  },
+  {
+    "ottoman": "Nâ-tüvân",
+    "turkish": "Şir",
+    "meaning": "Güçsüz, zayıf Add olunmak Sayılmak (Arslan Jiyân Kızgın, kükremiş)"
+  },
+  {
+    "ottoman": "Rüstem",
+    "turkish": "Be-gâyet",
+    "meaning": "Ünlü iran savaşcısı Tevemân İkizler (Aşırı derecede, çokça İhtimâm Titizlenme, önemseme)"
+  },
+  {
+    "ottoman": "Terakki",
+    "turkish": "Va’de",
+    "meaning": "İlerletme, zamlandırma Hüsn Güzel (Vaat verme Tergib İsteklendirme, çoşturma)"
+  },
+  {
+    "ottoman": "Irlamak",
+    "turkish": "Tevhid",
+    "meaning": "Çalmak, söylemek Çoğur Müzik aleti, çöğür (Lâ -ilâhe illallah demek Tehlil Lâ -ilâhe illallah demek)"
+  },
+  {
+    "ottoman": "Acib",
+    "turkish": "Mertebe",
+    "meaning": "Acayip, ilgi çekici Mütehayyir Şaşkın, şaşırmış (Derece, seviye Temâşâ etmek Seyretmek, izlemek)"
+  },
+  {
+    "ottoman": "Ma’hüd",
+    "turkish": "Melâ’in",
+    "meaning": "Sözü geçen, mezkür Suüd etmek Çıkmak (Melunlar, alçaklar Def’ etmek Savuşturmak, kovalamak)"
+  },
+  {
+    "ottoman": "Hin",
+    "turkish": "Kadem",
+    "meaning": "Zaman, vakit Vaz’ Koymak (Ayak İşrâk vakti Güneşin doğduğu an)"
+  },
+  {
+    "ottoman": "Minvâl",
+    "turkish": "Dilir",
+    "meaning": "Şekil, tarz, üslüp Güzerân etmek Geçmek (Yürekli, cesur, yiğit Şipâriş Tenbih, ısmarlama)"
+  },
+  {
+    "ottoman": "Kılağo",
+    "turkish": "Peyâm",
+    "meaning": "Parlklık, ışıltı Müşkil olmak Zor olmak (Haber İblâğ Ulaştırma)"
+  },
+  {
+    "ottoman": "Kethudâyeri",
+    "turkish": "İbtidâ",
+    "meaning": "Yeniçeri zabiti Kethuda Vek Mahlüt Karışık, birbirine girmiş (Önce, başlangıçta Beden Duvar)"
+  },
+  {
+    "ottoman": "Ekser",
+    "turkish": "Esfel",
+    "meaning": "Çok, fazla Mürr Acı (En aşağı Sâfilin Aşağıdakiler, alçaklar)"
+  },
+  {
+    "ottoman": "İğtinâm",
+    "turkish": "Müzâhame",
+    "meaning": "Yağma ve talan etme Nidâ olunmak Çağrılmak (Kalabalıklaşma Nısf Yarı)"
+  },
+  {
+    "ottoman": "Leyl",
+    "turkish": "Vire",
+    "meaning": "Gece Mukaddem Önce (Anlaşarak teslim etme Ahvâl Haller, durumlar)"
+  },
+  {
+    "ottoman": "Meserret",
+    "turkish": "Hâlık",
+    "meaning": "Sevinme, sevinç Sem’ İşitme, kulak (Yaratıcı, yaratan Bi-çün Sebep sorulmak, Allah)"
+  },
+  {
+    "ottoman": "Tebşir",
+    "turkish": "İltimâs",
+    "meaning": "Müjdeleme, haber verme Tehâlük Çırpınma, çok isteme (Kayırma, rica bulunma Haml etmek Yormak)"
+  },
+  {
+    "ottoman": "Tevakkuf",
+    "turkish": "Seher",
+    "meaning": "Durmak Avâz etmek Seslenmek (vakti Tan yeri ağarmadan önc Mahsür Kuşatılmış)"
+  },
+  {
+    "ottoman": "Rüzi",
+    "turkish": "Azâd",
+    "meaning": "Nsip, kısmet Giriftâr Girmek, düşmek (etmek Serbest bırakmka Şükrân Teşekkür etmek)"
+  },
+  {
+    "ottoman": "Bükâ",
+    "turkish": "Çorbacı",
+    "meaning": "Ağlamak Zâyi’ olmak Yok olmak, kaybolmak (Yeniçeri ocağı zabiti Miri Devlete ait (hatta devlet))"
+  },
+  {
+    "ottoman": "Yasakçı",
+    "turkish": "Murabba’",
+    "meaning": "Bekçi, gözetleyici Sükker Şeker (Kare şeklinde Tafsil Ayrıntılı anlatma)"
+  },
+  {
+    "ottoman": "Asitâne",
+    "turkish": "Peydâ",
+    "meaning": "İstanbul Mukayyed olmak İlgilenmek (etmek Elde etmek Hâliyâ Hâlen, şu anda)"
+  },
+  {
+    "ottoman": "Mütekâid",
+    "turkish": "Koşmak",
+    "meaning": "Emekli Maan Beraberce (Refekatçi kılmak, katmak Teşrif Şereflendirme, gelme)"
+  },
+  {
+    "ottoman": "Dârüssaâde",
+    "turkish": "Telhis",
+    "meaning": "Harem Mülâki olmak Karşılaşmak, bir aray gelmek (Özet belge Lisânen Sözlü olarak)"
+  },
+  {
+    "ottoman": "Anda",
+    "turkish": "Fâhire",
+    "meaning": "Orada Hil’at Elbise (Değerli, gurur verici İ’tâ Hediye etmek)"
+  },
+  {
+    "ottoman": "Piyade",
+    "turkish": "işlemlerini",
+    "meaning": "mukâbelecisi Kapıkulu maaş ve künye (yapan büro)"
+  },
+  {
+    "ottoman": "Süvâri",
+    "turkish": "işlemlerini",
+    "meaning": "mukâbelecisi Süvari bölüklerin maaş ve künye (yapan büro)"
+  },
+  {
+    "ottoman": "Murâdât",
+    "turkish": "Mansıb",
+    "meaning": "İstekler, talepler Hâcet Dilek, istek (Görev, kadro Ma’zül Görevden alınmış)"
+  },
+  {
+    "ottoman": "İcmâlen",
+    "turkish": "Sergüzeşt",
+    "meaning": "Topluca, genel olarak Vâki’ olmak Meydana gelmek (Başından geçen İksâr olunmak Tafsilata girmek)"
+  },
+  {
+    "ottoman": "Sâlis",
+    "turkish": "Külliyyetlü",
+    "meaning": "Üçüncü İç Hazîne Hazine-i hassa; padişah hazine (Çok, fazla Mebâliğ Meblağlar, miktarlar)"
+  },
+  {
+    "ottoman": "Cem‘",
+    "turkish": "Vâkı‘",
+    "meaning": "Toplama, biriktirme İddihâr Depolama, biriktirme (olmak Meydana gelmek Nemçe Avusturya)"
+  },
+  {
+    "ottoman": "Gûne",
+    "turkish": "Hâdis",
+    "meaning": "Türlü, çeşit Muzâyaka Darlık, sıkıntı, buhran (olmak İlk defa meydana gelmek Misillü Gibi, benzer)"
+  },
+  {
+    "ottoman": "Evvel",
+    "turkish": "Mürûr",
+    "meaning": "Birinci, ilk Kâmilen Tamamıyla, bütünüyle (etmek Geçmek Mesârif Masraflar, harcamalar)"
+  },
+  {
+    "ottoman": "Lâzime",
+    "turkish": "Şehriyâr",
+    "meaning": "Gerekli olan Tesviye olunmak Düzeltmek, karşılanmak (Hükümdar, padişah Müşâr İşaret olunan)"
+  },
+  {
+    "ottoman": "Nâmî",
+    "turkish": "Maa",
+    "meaning": "Namlı, ünlü Mensûb Nispet edilen, ait (Beraber Tetimmât Tetimmeler, müştemilat)"
+  },
+  {
+    "ottoman": "Adem",
+    "turkish": "Güzerân",
+    "meaning": "Yokluk Kâfî Yeterli (Geçmek Râbi‘ Dördüncü)"
+  },
+  {
+    "ottoman": "Câlis",
+    "turkish": "Saltanat",
+    "meaning": "Cülus eden, oturan Serîr Taht, koltuk (Sultanlık, padişahlık Cülûs Oturmak, tahta geçmek)"
+  },
+  {
+    "ottoman": "İ‘tâ",
+    "turkish": "Eşkıyâ",
+    "meaning": "Vermek Vâlide Anne (Şakiler, isyancılar Taltîf Ödüllendirme)"
+  },
+  {
+    "ottoman": "Te’yîd",
+    "turkish": "Hazâin",
+    "meaning": "Pekiştirme, sağlamlaştırma Mutâlaa Değerlendirme, inceleme (Hazineler Bugāt Bagiler, isyancılar)"
+  },
+  {
+    "ottoman": "İbzâl",
+    "turkish": "Nukūd",
+    "meaning": "Bolca harcama İsrâf Bolca harcama (Nakit paralar Müddehara Biriktirilen)"
+  },
+  {
+    "ottoman": "Telef",
+    "turkish": "Tüccâr",
+    "meaning": "olma Yok olmak Mebnî İçin, dolayı (Tacirler, ticaret yapanlar Mütemevvilîn Çok parası olanlar)"
+  },
+  {
+    "ottoman": "İstidâne",
+    "turkish": "Mâzıye",
+    "meaning": "Borçlanma Selâtîn Sultanlar, padişahlar (Geçen, önceki Sîm Gümüş)"
+  },
+  {
+    "ottoman": "Zerr",
+    "turkish": "Edevât",
+    "meaning": "Altın Masnû‘ Yapılmış (Edat, alet, avadanlık Darb Vurma, basma)"
+  },
+  {
+    "ottoman": "Sikke",
+    "turkish": "n‘âm",
+    "meaning": "Paralara vurulan damga Îfâ Yerine getirme (Bahşiş, hediye verme Takrîben Yaklaşık olarak)"
+  },
+  {
+    "ottoman": "Akçe",
+    "turkish": "Nisbet",
+    "meaning": "Gümüş para Riyâl Gümüş sikkesi (Oran Tavzîh İzah etme, açıklama”)"
+  },
+  {
+    "ottoman": "Gāret-kâr",
+    "turkish": "Te’dîb",
+    "meaning": "Yağmacı Vâridât Gelirler (Terbiye etme cezalandırma Tenkîl Uzaklaştırma, ceza verme)"
+  },
+  {
+    "ottoman": "Umûr",
+    "turkish": "Mâl-â-mâl",
+    "meaning": "İşler Kesîre Çok (Dopdolu Kemâ-yenbağî Gerektiği gibi)"
+  },
+  {
+    "ottoman": "Nizâm",
+    "turkish": "Vezâif",
+    "meaning": "vermek Düzene, yoluna koymak Mesârifât Masraflar, harcamalar (Vazifeler, ücretler Cârî olmak Geçerli, uygulanır olmak)"
+  },
+  {
+    "ottoman": "Havâle",
+    "turkish": "gösteren",
+    "meaning": "Mülteziminin vereceğini (yazılı emir Sergi Kişiye, ödenemeyen miktarı)"
+  },
+  {
+    "ottoman": "İlgā",
+    "turkish": "İ‘tibâr",
+    "meaning": "Lağv etme, kaldırma Be-her Her bir (Saygı gösterme, önem verme Kese 50 bin akçe miktarında para birimi)"
+  },
+  {
+    "ottoman": "Sadr",
+    "turkish": "Teksîr",
+    "meaning": "Görev makam sadrazam Katl Öldürme (Çoğaltma Mecrâ Kaynak)"
+  },
+  {
+    "ottoman": "Sahîh",
+    "turkish": "Bâ-husûs",
+    "meaning": "Sağlıklı, doğru Tağyîr Değiştirme, başkalaştırma (Bilhassa, özellikle Müteâkıb Sonra gelen, onu izleyen)"
+  },
+  {
+    "ottoman": "Tavâif",
+    "turkish": "Tuğyân",
+    "meaning": "Taifeler, guruplar Utüvv Serkeşlik, ayaklanma (İsyan, ayaklanma Urûc Yükselme, yukarı çıkma)"
+  },
+  {
+    "ottoman": "Ulûfe",
+    "turkish": "Emvâl",
+    "meaning": "Üç ayda bir aldıkları ücret Tezâyüd Artma, çoğalma (Mallar, paralar Dest El)"
+  },
+  {
+    "ottoman": "Tegallüb",
+    "turkish": "Rü’yet",
+    "meaning": "Zorbalık, zorla hüküm sürme Tasallut Musallat olma, hükmüne alma (olunmak Görülmek, karşılanmak Binâ-berîn Bununla birlikte)"
+  },
+  {
+    "ottoman": "Tevcîh",
+    "turkish": "Mukābil",
+    "meaning": "Yönlendirme, atama Menâsıb Mansıplar, görevler (Karşılık Eslâf Seleftekiler, öncekiler)"
+  },
+  {
+    "ottoman": "Îrâd",
+    "turkish": "Tedbîr",
+    "meaning": "Getirme, gelir Hüsn Güzel, güzellik (Önlem alma Add etmek Saymak, kabul etmek)"
+  },
+  {
+    "ottoman": "Tedârük",
+    "turkish": "Kā‘ide",
+    "meaning": "Hazırlama, bulma, geçirme Âciz Gücü yetmeyen, güçsüz (Kural, usul İttihâz etmek Edinmek)"
+  },
+  {
+    "ottoman": "Sebük",
+    "turkish": "Mağşûş",
+    "meaning": "Hafif, yeğni Sebük-mağz Beyinsiz, akılsız (Bozuk Tab‘ Tabiat, yaratılış, huy)"
+  }
+]

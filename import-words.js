@@ -1,103 +1,65 @@
-// kelimeler.txt dosyasındaki Osmanlıca kelimeleri işleyip
-// uygulamaya eklemek için basit bir script
+// Tüm kelime listesini veritabanına aktaran script
+import * as fs from 'fs';
 
-const fs = require('fs');
+// Çıkarılan kelime listesini oku
+const words = JSON.parse(fs.readFileSync('./extracted-words.json', 'utf8'));
 
-// kelimeler.txt dosyasını oku
-const fileContent = fs.readFileSync('./attached_assets/kelimeler.txt', 'utf8');
+// Temel kategori ID'sini belirle (mevcut uygulamamızda 1 olduğunu varsayıyoruz)
+const categoryId = 1;
 
-// Kelimeleri işle
-const processWords = (content) => {
-  const lines = content.split('\n');
-  const words = [];
+// Her kelime için API çağrısı yap
+async function importWords() {
+  console.log(`Toplam ${words.length} kelime içe aktarılıyor...`);
   
-  // İlk satırı atlayalım (başlık satırı)
-  let lineIndex = 1;
+  let successCount = 0;
+  let errorCount = 0;
   
-  while (lineIndex < lines.length) {
-    const line = lines[lineIndex].trim();
-    if (line) {
-      // Satır formatı: "Kelime Anlamı" şeklinde
-      const parts = line.split(' ');
+  for (const word of words) {
+    try {
+      // Kelimeyi eklemek için POST isteği gönder
+      const response = await fetch('http://localhost:5000/api/words', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          ottoman: word.ottoman,
+          turkish: word.turkish,
+          meaning: word.meaning || null,
+          categoryId: categoryId,
+          difficulty: 'basic', // Varsayılan zorluk
+          exampleOttoman: null,
+          exampleTurkish: null,
+          etymology: null,
+          audioUrl: null
+        }),
+      });
       
-      if (parts.length >= 2) {
-        const ottoman = parts[0]; // Osmanlıca kelime
-        
-        // Satır formatı değişken olabilir, dolayısıyla geri kalan kısmı anlam olarak alalım
-        const meaning = parts.slice(1).join(' ');
-        
-        // Sonraki satır (Anlamı) kısmını alalım
-        if (lineIndex + 1 < lines.length) {
-          const turkishLine = lines[lineIndex + 1].trim();
-          if (turkishLine) {
-            // Türkçe kelimeyi çıkarmaya çalışalım
-            const turkishParts = turkishLine.split(' ');
-            const turkish = turkishParts[0]; // Türkçe kelime
-            
-            if (ottoman && turkish && turkish.length > 0) {
-              words.push({
-                ottoman,
-                turkish,
-                meaning
-              });
-            }
-          }
+      if (response.ok) {
+        successCount++;
+        if (successCount % 10 === 0) {
+          console.log(`${successCount} kelime başarıyla eklendi...`);
         }
+      } else {
+        const error = await response.json();
+        console.error(`Kelime eklenemedi: ${word.ottoman} - ${word.turkish}`, error);
+        errorCount++;
       }
+    } catch (error) {
+      console.error(`Hata oluştu: ${word.ottoman} - ${word.turkish}`, error);
+      errorCount++;
     }
-    lineIndex += 1;
+    
+    // Her istek arasında kısa bir süre bekle
+    await new Promise(resolve => setTimeout(resolve, 50));
   }
   
-  return words;
-};
+  console.log(`
+İçe aktarma tamamlandı:
+- Başarılı: ${successCount}
+- Hatalı: ${errorCount}
+- Toplam: ${words.length}
+  `);
+}
 
-// Kelimeleri işle
-const parsedWords = processWords(fileContent);
-
-// Kelimeler için script çıktısı oluştur
-const createWordsScript = (words) => {
-  let script = `import { storage } from "./server/storage.js";\n\n`;
-  script += `const importWords = async () => {\n`;
-  script += `  // Orta (A2-B1) kategorisini kullanacağız\n`;
-  script += `  const categories = await storage.getAllCategories();\n`;
-  script += `  const categoryId = categories.find(c => c.name === "Orta (A2-B1)")?.id || 2;\n\n`;
-  
-  script += `  // Kelimeleri ekleyelim\n`;
-  script += `  const words = [\n`;
-  
-  words.forEach(word => {
-    script += `    {\n`;
-    script += `      ottoman: "${word.ottoman}",\n`;
-    script += `      turkish: "${word.turkish}",\n`;
-    script += `      meaning: "${word.meaning}",\n`;
-    script += `      categoryId: categoryId,\n`;
-    script += `      difficulty: "intermediate",\n`;
-    script += `      etymology: "",\n`;
-    script += `      audioUrl: "",\n`;
-    script += `    },\n`;
-  });
-  
-  script += `  ];\n\n`;
-  
-  script += `  // Kelimeleri veritabanına ekle\n`;
-  script += `  for (const word of words) {\n`;
-  script += `    try {\n`;
-  script += `      await storage.createWord(word);\n`;
-  script += `      console.log(\`Kelime eklendi: \${word.turkish}\`);\n`;
-  script += `    } catch (error) {\n`;
-  script += `      console.error(\`Kelime eklenemedi: \${word.turkish}\`, error);\n`;
-  script += `    }\n`;
-  script += `  }\n`;
-  script += `  console.log("Kelime ekleme işlemi tamamlandı.");\n`;
-  script += `};\n\n`;
-  script += `importWords();\n`;
-  
-  return script;
-};
-
-// Script dosyası oluştur
-const script = createWordsScript(parsedWords);
-fs.writeFileSync('./import-words-script.js', script);
-
-console.log(`İşlem tamamlandı. ${parsedWords.length} kelime işlendi.`);
-console.log("import-words-script.js dosyası oluşturuldu.");
+importWords().catch(console.error);

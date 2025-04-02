@@ -30,11 +30,7 @@ const Home = () => {
     return true;
   });
   
-  // Load more words handler (would be implemented in a real app)
-  const handleLoadMore = () => {
-    // Implementation would go here
-    console.log('Load more words');
-  };
+  // Tüm kelimeler zaten yükleniyor, load more butonu göstermeyelim
   
   return (
     <div className="container mx-auto px-4 py-6">
@@ -96,16 +92,7 @@ const Home = () => {
               )}
             </div>
             
-            {filteredWords && filteredWords.length > 0 && (
-              <div className="mt-8 flex justify-center">
-                <Button 
-                  className="bg-[#2c5282] hover:bg-blue-700"
-                  onClick={handleLoadMore}
-                >
-                  Daha Fazla Kelime Yükle
-                </Button>
-              </div>
-            )}
+
           </>
         )}
       </section>
