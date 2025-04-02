@@ -3,7 +3,6 @@ import { Button } from '@/components/ui/button';
 import SearchBar from '@/components/SearchBar';
 import AddWordDialog from '@/components/AddWordDialog';
 import StatsSummary from '@/components/StatsSummary';
-import CategorySelector from '@/components/CategorySelector';
 import DailyWord from '@/components/DailyWord';
 import WordCard from '@/components/WordCard';
 import StudyModes from '@/components/StudyModes';
@@ -11,7 +10,6 @@ import { useWordsWithProgress } from '@/hooks/useWords';
 import { LayoutGrid, List } from 'lucide-react';
 
 const Home = () => {
-  const [selectedCategoryId, setSelectedCategoryId] = useState<number | null>(null);
   const [searchQuery, setSearchQuery] = useState('');
   const [displayGrid, setDisplayGrid] = useState(true);
   
@@ -20,14 +18,9 @@ const Home = () => {
   
   const { data: wordsWithProgress, isLoading: isLoadingWords } = useWordsWithProgress(userId);
   
-  // Filter words based on category and search query
+  // Filter words based on search query only
   const filteredWords = wordsWithProgress?.filter(word => {
-    let matchesCategory = true;
     let matchesSearch = true;
-    
-    if (selectedCategoryId !== null) {
-      matchesCategory = word.categoryId === selectedCategoryId;
-    }
     
     if (searchQuery) {
       const query = searchQuery.toLowerCase();
@@ -37,7 +30,7 @@ const Home = () => {
         (word.meaning && word.meaning.toLowerCase().includes(query));
     }
     
-    return matchesCategory && matchesSearch;
+    return matchesSearch;
   });
   
   // Load more words handler (would be implemented in a real app)
@@ -50,12 +43,6 @@ const Home = () => {
     <div className="container mx-auto px-4 py-6">
       {/* Dashboard Summary */}
       <StatsSummary userId={userId} />
-      
-      {/* Category Selector */}
-      <CategorySelector 
-        onCategorySelect={setSelectedCategoryId}
-        selectedCategoryId={selectedCategoryId}
-      />
       
       {/* Featured Word */}
       <DailyWord />
