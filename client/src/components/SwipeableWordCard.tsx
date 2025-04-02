@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button';
 import { ArrowLeft, ArrowRight, Volume2, Bookmark } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Badge } from '@/components/ui/badge';
-import { WordWithProgress } from '../../shared/schema';
+import type { WordWithProgress } from 'shared/schema';
 import { motion, PanInfo } from 'framer-motion';
 
 interface SwipeableWordCardProps {

@@ -8,6 +8,7 @@ import WordCard from '@/components/WordCard';
 import SwipeableWordCard from '@/components/SwipeableWordCard';
 import StudyModes from '@/components/StudyModes';
 import SuggestedWords from '@/components/SuggestedWords';
+import PluralSingularSection from '@/components/PluralSingularSection';
 import { useWordsWithProgress } from '@/hooks/useWords';
 import { LayoutGrid, List, GripHorizontal } from 'lucide-react';
 
@@ -39,8 +40,16 @@ const Home = () => {
       {/* Dashboard Summary */}
       <StatsSummary userId={userId} />
       
-      {/* Featured Word */}
-      <DailyWord />
+      {/* Featured Word and Plural-Singular Cards */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
+        <DailyWord />
+        <div>
+          <h2 className="font-serif text-xl font-bold text-[#2d3748] mb-4">Çoğul-Tekil Alıştırması</h2>
+          <div className="bg-white p-4 rounded-lg shadow">
+            <PluralSingularSection />
+          </div>
+        </div>
+      </div>
       
       {/* Suggested Words */}
       <SuggestedWords userId={userId} />
