@@ -18,7 +18,7 @@ async function addWords() {
   console.log(`${words.length} kelime işleniyor...`);
 
   // Önce kategorileri alalım
-  const categories = await fetch('http://localhost:3000/api/categories')
+  const categories = await fetch('http://localhost:5000/api/categories')
     .then(res => res.json())
     .catch(err => {
       console.error('Kategoriler alınırken hata:', err);
@@ -40,7 +40,7 @@ async function addWords() {
   for (const word of words) {
     try {
       // Önce kelimenin zaten var olup olmadığını kontrol edelim
-      const searchRes = await fetch(`http://localhost:3000/api/words?query=${encodeURIComponent(word.turkish)}`)
+      const searchRes = await fetch(`http://localhost:5000/api/words?query=${encodeURIComponent(word.turkish)}`)
         .then(res => res.json());
       
       const exists = searchRes.some(w => 
@@ -49,7 +49,7 @@ async function addWords() {
       );
       
       if (!exists) {
-        const response = await fetch('http://localhost:3000/api/words', {
+        const response = await fetch('http://localhost:5000/api/words', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
