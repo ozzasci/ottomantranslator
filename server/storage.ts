@@ -605,8 +605,64 @@ export class MemStorage implements IStorage {
         { ottoman: "مطالعه", turkish: "mutâlaa", meaning: "Değerlendirme, inceleme" }
       ];
       
+      // Beşinci grup kelimeler
+      const group5Words = [
+        { ottoman: "الغا", turkish: "ilgā", meaning: "Lağv etme, kaldırma" },
+        { ottoman: "بهر", turkish: "be-her", meaning: "Her bir" },
+        { ottoman: "اعتبار", turkish: "i'tibâr", meaning: "Saygı gösterme, önem verme" },
+        { ottoman: "کیسه", turkish: "kese", meaning: "50 bin akçe miktarında para birimi" },
+        { ottoman: "صدر", turkish: "sadr", meaning: "Görev makam sadrazam" },
+        { ottoman: "قتل", turkish: "katl", meaning: "Öldürme" },
+        { ottoman: "تکثیر", turkish: "teksîr", meaning: "Çoğaltma" },
+        { ottoman: "مجرا", turkish: "mecrâ", meaning: "Kaynak" },
+        { ottoman: "صحیح", turkish: "sahîh", meaning: "Sağlıklı, doğru" },
+        { ottoman: "تغییر", turkish: "tağyîr", meaning: "Değiştirme, başkalaştırma" },
+        { ottoman: "باخصوص", turkish: "bâ-husûs", meaning: "Bilhassa, özellikle" },
+        { ottoman: "متعاقب", turkish: "müteâkıb", meaning: "Sonra gelen, onu izleyen" },
+        { ottoman: "طوائف", turkish: "tavâif", meaning: "Taifeler, guruplar" },
+        { ottoman: "عتو", turkish: "utüvv", meaning: "Serkeşlik, ayaklanma" },
+        { ottoman: "طغیان", turkish: "tuğyân", meaning: "İsyan, ayaklanma" },
+        { ottoman: "عروج", turkish: "urûc", meaning: "Yükselme, yukarı çıkma" },
+        { ottoman: "علوفه", turkish: "ulûfe", meaning: "Üç ayda bir aldıkları ücret" },
+        { ottoman: "تزاید", turkish: "tezâyüd", meaning: "Artma, çoğalma" },
+        { ottoman: "اموال", turkish: "emvâl", meaning: "Mallar, paralar" },
+        { ottoman: "دست", turkish: "dest", meaning: "El" },
+        { ottoman: "تغلب", turkish: "tegallüb", meaning: "Zorbalık, zorla hüküm sürme" },
+        { ottoman: "تسلط", turkish: "tasallut", meaning: "Musallat olma, hükmüne alma" },
+        { ottoman: "رؤیت اولنمق", turkish: "rü'yet olunmak", meaning: "Görülmek, karşılanmak" },
+        { ottoman: "بناء علیه", turkish: "binâ-berîn", meaning: "Bununla birlikte" },
+        { ottoman: "توجیه", turkish: "tevcîh", meaning: "Yönlendirme, atama" },
+        { ottoman: "مناصب", turkish: "menâsıb", meaning: "Mansıplar, görevler" },
+        { ottoman: "مقابل", turkish: "mukābil", meaning: "Karşılık" },
+        { ottoman: "اسلاف", turkish: "eslâf", meaning: "Seleftekiler, öncekiler" },
+        { ottoman: "ایراد", turkish: "îrâd", meaning: "Getirme, gelir" },
+        { ottoman: "حسن", turkish: "hüsn", meaning: "Güzel, güzellik" },
+        { ottoman: "تدبیر", turkish: "tedbîr", meaning: "Önlem alma" },
+        { ottoman: "عد اتمك", turkish: "add etmek", meaning: "Saymak, kabul etmek" },
+        { ottoman: "تدارك", turkish: "tedârük", meaning: "Hazırlama, bulma, geçirme" },
+        { ottoman: "عاجز", turkish: "âciz", meaning: "Gücü yetmeyen, güçsüz" },
+        { ottoman: "قاعده", turkish: "kā'ide", meaning: "Kural, usul" },
+        { ottoman: "اتخاذ ایتمك", turkish: "ittihâz etmek", meaning: "Edinmek" },
+        { ottoman: "سبك", turkish: "sebük", meaning: "Hafif, yeğni" },
+        { ottoman: "سبك مغز", turkish: "sebük-mağz", meaning: "Beyinsiz, akılsız" },
+        { ottoman: "مغشوش", turkish: "mağşûş", meaning: "Bozuk" },
+        { ottoman: "طبع", turkish: "tab'", meaning: "Tabiat, yaratılış, huy" },
+        // Ek kelimeler
+        { ottoman: "تسخیر", turkish: "teshîr", meaning: "Fethetme, ele geçirme" },
+        { ottoman: "استیلا", turkish: "istîlâ", meaning: "Ele geçirme, istila etme" },
+        { ottoman: "محاربه", turkish: "muhârebe", meaning: "Savaş, muharebe" },
+        { ottoman: "مسالمت", turkish: "müsâlemet", meaning: "Barış içinde olma" },
+        { ottoman: "معاهده", turkish: "muâhede", meaning: "Antlaşma" },
+        { ottoman: "مذاکره", turkish: "müzâkere", meaning: "Görüşme, müzakere" },
+        { ottoman: "دیبلوماسی", turkish: "diplomasi", meaning: "Diplomasi" },
+        { ottoman: "سفارت", turkish: "sefâret", meaning: "Elçilik, büyükelçilik" },
+        { ottoman: "معاهد", turkish: "muâhid", meaning: "Anlaşan, antlaşma yapan" },
+        { ottoman: "مغلوب", turkish: "mağlûb", meaning: "Yenilmiş, mağlup" },
+        { ottoman: "غالب", turkish: "gālib", meaning: "Galip, üstün gelen" }
+      ];
+      
       // Tüm kelimeleri birleştir
-      const allWords = [...group1Words, ...group2Words, ...group3Words, ...group4Words];
+      const allWords = [...group1Words, ...group2Words, ...group3Words, ...group4Words, ...group5Words];
       
       // Kelimeleri ekle
       let count = 0;

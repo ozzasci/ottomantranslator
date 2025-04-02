@@ -221,98 +221,105 @@ const FlashcardPractice: React.FC<FlashcardPracticeProps> = ({ words, userId, ca
       </div>
       
       {currentWord && (
-        <div 
-          className="card-flip h-80 w-full max-w-xl mx-auto cursor-pointer"
-          onClick={handleFlip}
-        >
-          <div className={cn(
-            "card-inner h-full relative",
-            flipped ? "rotate-y-180" : ""
-          )}>
-            {/* Front of card */}
-            <Card className={cn(
-              "absolute w-full h-full backface-hidden bg-white rounded-lg shadow-md flex flex-col justify-center items-center p-6",
-              flipped ? "invisible" : "visible"
+        <div className="flex justify-center items-center h-full">
+          <div 
+            className="card-flip h-96 w-full max-w-2xl mx-auto cursor-pointer shadow-lg transition-all duration-300 transform hover:scale-105"
+            onClick={handleFlip}
+          >
+            <div className={cn(
+              "card-inner h-full relative",
+              flipped ? "rotate-y-180" : ""
             )}>
-              <p className="text-sm text-gray-500 mb-2 self-start">
-                {categories.find(c => c.id === currentWord.categoryId)?.name || 'Bilinmeyen Kategori'}
-              </p>
-              <h3 className={`${showOttomanFirst ? 'font-ottoman' : ''} text-4xl mb-2 text-[#2d3748]`}>
-                {showOttomanFirst ? currentWord.ottoman : currentWord.turkish}
-              </h3>
-              <p className="text-sm text-gray-600 mt-4">Kartı çevirmek için tıklayın</p>
-              
-              <div className="absolute top-4 right-4">
-                <button 
-                  className="p-2 text-gray-500 hover:text-[#2c5282]"
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    handlePlayAudio();
-                  }}
-                >
-                  <Volume2 size={20} />
-                </button>
-              </div>
-            </Card>
-            
-            {/* Back of card */}
-            <Card className={cn(
-              "absolute w-full h-full backface-hidden bg-white rounded-lg shadow-md p-6 rotate-y-180",
-              flipped ? "visible" : "invisible"
-            )}>
-              <div className="flex flex-col h-full justify-between">
-                <div>
-                  <h3 className={`${!showOttomanFirst ? 'font-ottoman' : ''} text-2xl mb-4 text-[#2d3748]`}>
-                    {showOttomanFirst ? currentWord.turkish : currentWord.ottoman}
-                  </h3>
-                  
-                  <p className="mb-4 text-sm">{currentWord.meaning}</p>
-                  
-                  {(currentWord.exampleOttoman && currentWord.exampleTurkish) && (
-                    <div className="mb-4 p-4 bg-gray-50 rounded-md">
-                      <p className="font-semibold text-sm mb-1">Örnek:</p>
-                      <p className="font-ottoman text-lg mb-1 text-[#2d3748]">{currentWord.exampleOttoman}</p>
-                      <p className="text-sm italic">{currentWord.exampleTurkish}</p>
-                    </div>
-                  )}
-                </div>
+              {/* Front of card */}
+              <Card className={cn(
+                "absolute w-full h-full backface-hidden bg-white rounded-xl shadow-lg flex flex-col justify-center items-center p-8",
+                flipped ? "invisible" : "visible",
+                "border-2 border-gray-200"
+              )}>
+                <p className="text-sm text-gray-500 mb-4 self-start">
+                  {categories.find(c => c.id === currentWord.categoryId)?.name || 'Bilinmeyen Kategori'}
+                </p>
+                <h3 className={`${showOttomanFirst ? 'font-ottoman' : ''} text-6xl mb-6 text-[#2d3748] text-center`}>
+                  {showOttomanFirst ? currentWord.ottoman : currentWord.turkish}
+                </h3>
+                <p className="text-sm text-gray-600 mt-6">Kartı çevirmek için tıklayın</p>
                 
-                {!answered ? (
-                  <div className="flex justify-center space-x-4 mt-4">
-                    <Button 
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        handleAnswer(false);
-                      }}
-                      variant="outline"
-                      className="border-red-500 text-red-500 hover:bg-red-50"
-                    >
-                      <X className="mr-2 h-4 w-4" /> Bilmedim
-                    </Button>
-                    <Button 
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        handleAnswer(true);
-                      }}
-                      variant="outline"
-                      className="border-green-500 text-green-500 hover:bg-green-50"
-                    >
-                      <Check className="mr-2 h-4 w-4" /> Bildim
-                    </Button>
-                  </div>
-                ) : (
-                  <Button 
+                <div className="absolute top-6 right-6">
+                  <button 
+                    className="p-2 text-gray-500 hover:text-[#2c5282] transition-colors"
                     onClick={(e) => {
                       e.stopPropagation();
-                      moveToNext();
+                      handlePlayAudio();
                     }}
-                    className="mt-4 w-full bg-[#2c5282] hover:bg-blue-700"
                   >
-                    Sonraki Kelime <ArrowRight className="ml-2 h-4 w-4" />
-                  </Button>
-                )}
-              </div>
-            </Card>
+                    <Volume2 size={24} />
+                  </button>
+                </div>
+              </Card>
+              
+              {/* Back of card */}
+              <Card className={cn(
+                "absolute w-full h-full backface-hidden bg-white rounded-xl shadow-lg p-8 rotate-y-180",
+                flipped ? "visible" : "invisible",
+                "border-2 border-gray-200"
+              )}>
+                <div className="flex flex-col h-full justify-between">
+                  <div>
+                    <h3 className={`${!showOttomanFirst ? 'font-ottoman' : ''} text-4xl mb-6 text-[#2d3748] text-center`}>
+                      {showOttomanFirst ? currentWord.turkish : currentWord.ottoman}
+                    </h3>
+                    
+                    <p className="mb-4 text-lg text-center">{currentWord.meaning}</p>
+                    
+                    {(currentWord.exampleOttoman && currentWord.exampleTurkish) && (
+                      <div className="mb-4 p-6 bg-gray-50 rounded-lg">
+                        <p className="font-semibold text-md mb-2 text-center">Örnek:</p>
+                        <p className="font-ottoman text-xl mb-2 text-[#2d3748] text-center">{currentWord.exampleOttoman}</p>
+                        <p className="text-md italic text-center">{currentWord.exampleTurkish}</p>
+                      </div>
+                    )}
+                  </div>
+                  
+                  {!answered ? (
+                    <div className="flex justify-center space-x-6 mt-6">
+                      <Button 
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          handleAnswer(false);
+                        }}
+                        variant="outline"
+                        size="lg"
+                        className="border-2 border-red-500 text-red-500 hover:bg-red-50 transition-colors font-bold"
+                      >
+                        <X className="mr-2 h-5 w-5" /> Bilmedim
+                      </Button>
+                      <Button 
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          handleAnswer(true);
+                        }}
+                        variant="outline"
+                        size="lg"
+                        className="border-2 border-green-500 text-green-500 hover:bg-green-50 transition-colors font-bold"
+                      >
+                        <Check className="mr-2 h-5 w-5" /> Bildim
+                      </Button>
+                    </div>
+                  ) : (
+                    <Button 
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        moveToNext();
+                      }}
+                      size="lg"
+                      className="mt-6 w-full bg-[#2c5282] hover:bg-blue-700 transition-colors font-bold py-6"
+                    >
+                      Sonraki Kelime <ArrowRight className="ml-2 h-5 w-5" />
+                    </Button>
+                  )}
+                </div>
+              </Card>
+            </div>
           </div>
         </div>
       )}

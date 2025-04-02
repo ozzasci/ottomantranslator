@@ -11,3 +11,32 @@
     @apply font-sans antialiased bg-background text-foreground;
   }
 }
+
+/* 3D Flashcard Flip Animasyonu */
+.card-flip {
+  perspective: 1000px;
+}
+
+.card-inner {
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+}
+
+/* Ottoman Font */
+@font-face {
+  font-family: 'Ottoman';
+  src: local('Amiri'), local('Scheherazade'), local('Arial');
+}
+
+.font-ottoman {
+  font-family: 'Ottoman', serif;
+  direction: rtl;
+}
