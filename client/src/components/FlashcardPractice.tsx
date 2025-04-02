@@ -232,11 +232,19 @@ const FlashcardPractice: React.FC<FlashcardPracticeProps> = ({ words, userId, ca
             )}>
               {/* Front of card */}
               <Card className={cn(
-                "absolute w-full h-full backface-hidden bg-white rounded-xl shadow-lg flex flex-col justify-center items-center p-8",
+                "absolute w-full h-full backface-hidden rounded-xl shadow-lg flex flex-col justify-center items-center p-8",
                 flipped ? "invisible" : "visible",
-                "border-2 border-gray-200"
+                "border-2",
+                currentWord.difficulty === 'basic' ? "bg-gradient-to-br from-blue-50 to-blue-100 border-blue-200" :
+                currentWord.difficulty === 'intermediate' ? "bg-gradient-to-br from-purple-50 to-purple-100 border-purple-200" :
+                "bg-gradient-to-br from-amber-50 to-amber-100 border-amber-200"
               )}>
-                <p className="text-sm text-gray-500 mb-4 self-start">
+                <p className={cn(
+                  "text-sm mb-4 self-start font-semibold",
+                  currentWord.difficulty === 'basic' ? "text-blue-600" :
+                  currentWord.difficulty === 'intermediate' ? "text-purple-600" :
+                  "text-amber-600"
+                )}>
                   {categories.find(c => c.id === currentWord.categoryId)?.name || 'Bilinmeyen Kategori'}
                 </p>
                 <h3 className={`${showOttomanFirst ? 'font-ottoman' : ''} text-6xl mb-6 text-[#2d3748] text-center`}>
@@ -259,9 +267,12 @@ const FlashcardPractice: React.FC<FlashcardPracticeProps> = ({ words, userId, ca
               
               {/* Back of card */}
               <Card className={cn(
-                "absolute w-full h-full backface-hidden bg-white rounded-xl shadow-lg p-8 rotate-y-180",
+                "absolute w-full h-full backface-hidden rounded-xl shadow-lg p-8 rotate-y-180",
                 flipped ? "visible" : "invisible",
-                "border-2 border-gray-200"
+                "border-2",
+                currentWord.difficulty === 'basic' ? "bg-gradient-to-br from-blue-100 to-blue-50 border-blue-200" :
+                currentWord.difficulty === 'intermediate' ? "bg-gradient-to-br from-purple-100 to-purple-50 border-purple-200" :
+                "bg-gradient-to-br from-amber-100 to-amber-50 border-amber-200"
               )}>
                 <div className="flex flex-col h-full justify-between">
                   <div>

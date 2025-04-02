@@ -820,13 +820,19 @@ export class MemStorage implements IStorage {
     const allWords = await this.getAllWords();
     if (allWords.length === 0) return undefined;
     
-    // For simplicity, we'll return a fixed word as the daily word
-    // In a real app, you would implement a rotation or random selection
-    const dailyWordId = 7; // The 'saat' word
-    const dailyWord = await this.getWordById(dailyWordId);
+    // Zamanı kullanarak her 5 dakikada bir değişen bir kelime seçimi yap
+    const now = new Date();
+    // Günün kaçıncı 5 dakikalık diliminde olduğumuzu hesapla
+    const timeSlot = Math.floor(now.getHours() * 60 + now.getMinutes()) / 5;
+    
+    // Kelime seçimi için zaman dilimini kullan (döngüsel olarak)
+    const wordIndex = Math.floor(timeSlot) % allWords.length;
+    const selectedWordId = allWords[wordIndex].id;
+    
+    const dailyWord = await this.getWordById(selectedWordId);
     if (!dailyWord) return undefined;
     
-    const relatedWords = await this.getRelatedWords(dailyWordId);
+    const relatedWords = await this.getRelatedWords(selectedWordId);
     
     return {
       ...dailyWord,

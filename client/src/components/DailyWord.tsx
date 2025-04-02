@@ -101,12 +101,7 @@ const DailyWord = () => {
                 </div>
               )}
               
-              {word.etymology && (
-                <div className="bg-gray-100 p-4 rounded-md">
-                  <h4 className="font-medium mb-2">Etimoloji</h4>
-                  <p className="text-sm">{word.etymology}</p>
-                </div>
-              )}
+
               
               <div className="mt-auto flex justify-end space-x-2">
                 <Button variant="outline" className="bg-[#ecc94b] text-white hover:bg-yellow-500">

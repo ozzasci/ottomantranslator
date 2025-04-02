@@ -62,10 +62,19 @@ const WordCard = ({ word }: WordCardProps) => {
       )}>
         {/* Front of card */}
         <Card className={cn(
-          "absolute w-full h-full backface-hidden bg-white rounded-lg shadow-md flex flex-col justify-center items-center p-6",
-          flipped ? "invisible" : "visible"
+          "absolute w-full h-full backface-hidden rounded-lg shadow-md flex flex-col justify-center items-center p-6",
+          flipped ? "invisible" : "visible",
+          word.difficulty === 'basic' ? "bg-gradient-to-br from-blue-50 to-blue-100 border-blue-200" :
+          word.difficulty === 'intermediate' ? "bg-gradient-to-br from-purple-50 to-purple-100 border-purple-200" :
+          "bg-gradient-to-br from-amber-50 to-amber-100 border-amber-200",
+          "border-2"
         )}>
-          <p className="text-sm text-gray-500 mb-2 self-start">{getDifficultyText()}</p>
+          <p className={cn(
+            "text-sm mb-2 self-start font-semibold",
+            word.difficulty === 'basic' ? "text-blue-600" :
+            word.difficulty === 'intermediate' ? "text-purple-600" :
+            "text-amber-600"
+          )}>{getDifficultyText()}</p>
           <h3 className="font-ottoman text-4xl mb-2 text-[#2d3748]">{word.ottoman}</h3>
           <p className="text-sm text-gray-600">Kartı çevirmek için tıklayın</p>
           
@@ -79,8 +88,12 @@ const WordCard = ({ word }: WordCardProps) => {
         
         {/* Back of card */}
         <Card className={cn(
-          "absolute w-full h-full backface-hidden bg-white rounded-lg shadow-md p-6 rotate-y-180",
-          flipped ? "visible" : "invisible"
+          "absolute w-full h-full backface-hidden rounded-lg shadow-md p-6 rotate-y-180",
+          flipped ? "visible" : "invisible",
+          word.difficulty === 'basic' ? "bg-gradient-to-br from-blue-100 to-blue-50 border-blue-200" :
+          word.difficulty === 'intermediate' ? "bg-gradient-to-br from-purple-100 to-purple-50 border-purple-200" :
+          "bg-gradient-to-br from-amber-100 to-amber-50 border-amber-200",
+          "border-2"
         )}>
           <h3 className="font-medium text-lg mb-2">{word.turkish}</h3>
           <p className="mb-3 text-sm">{word.meaning}</p>
