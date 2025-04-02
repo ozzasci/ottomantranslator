@@ -20,17 +20,14 @@ const Home = () => {
   
   // Filter words based on search query only
   const filteredWords = wordsWithProgress?.filter(word => {
-    let matchesSearch = true;
-    
     if (searchQuery) {
       const query = searchQuery.toLowerCase();
-      matchesSearch = 
-        word.turkish.toLowerCase().includes(query) ||
+      return word.turkish.toLowerCase().includes(query) ||
         word.ottoman.includes(query) ||
         (word.meaning && word.meaning.toLowerCase().includes(query));
     }
     
-    return matchesSearch;
+    return true;
   });
   
   // Load more words handler (would be implemented in a real app)

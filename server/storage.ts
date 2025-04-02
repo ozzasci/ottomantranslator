@@ -183,6 +183,187 @@ export class MemStorage implements IStorage {
       audioUrl: ""
     });
     
+    // Kelimeler.txt dosyasından eklenen yeni kelimeler
+    this.createWord({
+      ottoman: "عزيمت",
+      turkish: "azimet",
+      meaning: "Gitmek",
+      categoryId: intermediateCategory.id,
+      difficulty: "intermediate",
+      etymology: "Arapça kökenli",
+      audioUrl: ""
+    });
+    
+    this.createWord({
+      ottoman: "قيام",
+      turkish: "kıyam",
+      meaning: "Başlamak, harekete geçmek",
+      categoryId: intermediateCategory.id,
+      difficulty: "intermediate",
+      etymology: "Arapça kökenli",
+      audioUrl: ""
+    });
+    
+    this.createWord({
+      ottoman: "بارو",
+      turkish: "bârü",
+      meaning: "Duvar, burç",
+      categoryId: intermediateCategory.id,
+      difficulty: "intermediate",
+      etymology: "Farsça kökenli",
+      audioUrl: ""
+    });
+    
+    this.createWord({
+      ottoman: "تقرب",
+      turkish: "tekarrüb",
+      meaning: "Yaklaşmak",
+      categoryId: intermediateCategory.id,
+      difficulty: "intermediate",
+      etymology: "Arapça kökenli",
+      audioUrl: ""
+    });
+    
+    this.createWord({
+      ottoman: "مجال",
+      turkish: "mecâl",
+      meaning: "İmkânı olmamak",
+      categoryId: intermediateCategory.id,
+      difficulty: "intermediate",
+      etymology: "Arapça kökenli",
+      audioUrl: ""
+    });
+    
+    this.createWord({
+      ottoman: "متانت",
+      turkish: "metânet",
+      meaning: "Sertlik, dayanıklılık",
+      categoryId: intermediateCategory.id,
+      difficulty: "intermediate",
+      etymology: "Arapça kökenli",
+      audioUrl: ""
+    });
+    
+    this.createWord({
+      ottoman: "مأيوس",
+      turkish: "me'yüs",
+      meaning: "Üzgün, ümitsiz",
+      categoryId: intermediateCategory.id,
+      difficulty: "intermediate",
+      etymology: "Arapça kökenli",
+      audioUrl: ""
+    });
+    
+    this.createWord({
+      ottoman: "نزول",
+      turkish: "nüzül",
+      meaning: "İnmek",
+      categoryId: intermediateCategory.id,
+      difficulty: "intermediate",
+      etymology: "Arapça kökenli",
+      audioUrl: ""
+    });
+    
+    this.createWord({
+      ottoman: "جمله",
+      turkish: "cümle",
+      meaning: "Bütün, tamamı",
+      categoryId: basicCategory.id,
+      difficulty: "basic",
+      etymology: "Arapça kökenli",
+      audioUrl: ""
+    });
+    
+    this.createWord({
+      ottoman: "امرا",
+      turkish: "ümerâ",
+      meaning: "Emirler, sancakbeyleri",
+      categoryId: advancedCategory.id,
+      difficulty: "advanced",
+      etymology: "Arapça kökenli",
+      audioUrl: ""
+    });
+    
+    this.createWord({
+      ottoman: "مير مران",
+      turkish: "mir-i mirân",
+      meaning: "Beylerbeyi",
+      categoryId: advancedCategory.id,
+      difficulty: "advanced",
+      etymology: "Farsça kökenli",
+      audioUrl: ""
+    });
+    
+    this.createWord({
+      ottoman: "كبار",
+      turkish: "kibâr",
+      meaning: "Büyükler, önde gelenler",
+      categoryId: intermediateCategory.id,
+      difficulty: "intermediate",
+      etymology: "Arapça kökenli",
+      audioUrl: ""
+    });
+    
+    this.createWord({
+      ottoman: "مختار",
+      turkish: "muhtâr",
+      meaning: "Seçilmiş, seçkin",
+      categoryId: intermediateCategory.id,
+      difficulty: "intermediate",
+      etymology: "Arapça kökenli",
+      audioUrl: ""
+    });
+    
+    this.createWord({
+      ottoman: "اختيار",
+      turkish: "ihtiyâr",
+      meaning: "Kıdemli",
+      categoryId: intermediateCategory.id,
+      difficulty: "intermediate",
+      etymology: "Arapça kökenli",
+      audioUrl: ""
+    });
+    
+    this.createWord({
+      ottoman: "مشاوره",
+      turkish: "müşâvere",
+      meaning: "Danışmak",
+      categoryId: intermediateCategory.id,
+      difficulty: "intermediate",
+      etymology: "Arapça kökenli",
+      audioUrl: ""
+    });
+    
+    this.createWord({
+      ottoman: "جمع",
+      turkish: "cem'",
+      meaning: "Toplanmak",
+      categoryId: intermediateCategory.id,
+      difficulty: "intermediate",
+      etymology: "Arapça kökenli",
+      audioUrl: ""
+    });
+    
+    this.createWord({
+      ottoman: "كمال مرتبه",
+      turkish: "kemâl mertebe",
+      meaning: "Aşırı derecede",
+      categoryId: advancedCategory.id,
+      difficulty: "advanced",
+      etymology: "Arapça kökenli",
+      audioUrl: ""
+    });
+    
+    this.createWord({
+      ottoman: "صعوبت",
+      turkish: "suübet",
+      meaning: "Zorluk",
+      categoryId: intermediateCategory.id,
+      difficulty: "intermediate",
+      etymology: "Arapça kökenli",
+      audioUrl: ""
+    });
+    
     // Add related words
     this.addRelatedWord(word7.id, this.createWord({
       ottoman: "دقيقه",
