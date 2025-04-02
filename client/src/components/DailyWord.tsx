@@ -103,14 +103,7 @@ const DailyWord = () => {
               
 
               
-              <div className="mt-auto flex justify-end space-x-2">
-                <Button variant="outline" className="bg-[#ecc94b] text-white hover:bg-yellow-500">
-                  <Bookmark className="mr-1" size={14} /> Kaydet
-                </Button>
-                <Button className="bg-[#2c5282] text-white hover:bg-blue-700">
-                  <Pen className="mr-1" size={14} /> Pratik Et
-                </Button>
-              </div>
+              {/* Butonlar kaldırıldı */}
             </div>
           </div>
         </CardContent>
