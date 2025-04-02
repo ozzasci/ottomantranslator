@@ -5,10 +5,11 @@ import AddWordDialog from '@/components/AddWordDialog';
 import StatsSummary from '@/components/StatsSummary';
 import DailyWord from '@/components/DailyWord';
 import WordCard from '@/components/WordCard';
+import SwipeableWordCard from '@/components/SwipeableWordCard';
 import StudyModes from '@/components/StudyModes';
 import SuggestedWords from '@/components/SuggestedWords';
 import { useWordsWithProgress } from '@/hooks/useWords';
-import { LayoutGrid, List } from 'lucide-react';
+import { LayoutGrid, List, GripHorizontal } from 'lucide-react';
 
 const Home = () => {
   const [searchQuery, setSearchQuery] = useState('');
@@ -70,7 +71,7 @@ const Home = () => {
                 className={!displayGrid ? "text-[#2c5282]" : "text-gray-400"}
                 onClick={() => setDisplayGrid(false)}
               >
-                <List size={16} />
+                <GripHorizontal size={16} />
               </Button>
             </div>
           </div>
@@ -84,17 +85,29 @@ const Home = () => {
           </div>
         ) : (
           <>
-            <div className={displayGrid ? "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" : "space-y-4"}>
-              {filteredWords && filteredWords.length > 0 ? (
-                filteredWords.map(word => (
-                  <WordCard key={word.id} word={word} />
-                ))
-              ) : (
-                <div className="col-span-full text-center py-8">
-                  <p className="text-gray-500">Kelime bulunamadı.</p>
-                </div>
-              )}
-            </div>
+            {displayGrid ? (
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                {filteredWords && filteredWords.length > 0 ? (
+                  filteredWords.map(word => (
+                    <WordCard key={word.id} word={word} />
+                  ))
+                ) : (
+                  <div className="col-span-full text-center py-8">
+                    <p className="text-gray-500">Kelime bulunamadı.</p>
+                  </div>
+                )}
+              </div>
+            ) : (
+              <div className="mb-16">
+                {filteredWords && filteredWords.length > 0 ? (
+                  <SwipeableWordCard words={filteredWords} />
+                ) : (
+                  <div className="text-center py-8">
+                    <p className="text-gray-500">Kelime bulunamadı.</p>
+                  </div>
+                )}
+              </div>
+            )}
             
 
           </>
