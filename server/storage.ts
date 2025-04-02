@@ -418,26 +418,35 @@ export class MemStorage implements IStorage {
       const existingWords = Array.from(this.wordsMap.values());
       console.log(`Mevcut kelime sayısı: ${existingWords.length}`);
     
-      // Temel kelimeler
-      const basicWords = [
-        { ottoman: "Azimet", turkish: "Gitmek", meaning: "Gitmek eylemi" },
-        { ottoman: "Kıyam", turkish: "Başlamak", meaning: "Başlamak, harekete geçmek" },
-        { ottoman: "Bârü", turkish: "Duvar", meaning: "Duvar, burç" },
-        { ottoman: "Tekarrüb", turkish: "Yaklaşmak", meaning: "Yaklaşmak eylemi" },
-        { ottoman: "Mecâl", turkish: "İmkan", meaning: "İmkânı olmamak" },
-        { ottoman: "Metânet", turkish: "Sertlik", meaning: "Sertlik, dayanıklılık" },
-        { ottoman: "Me'yüs", turkish: "Üzgün", meaning: "Üzgün, ümitsiz" },
-        { ottoman: "Nüzül", turkish: "İnmek", meaning: "İnmek eylemi" },
-        { ottoman: "Cümle", turkish: "Bütün", meaning: "Bütün, tamamı" },
-        { ottoman: "Ümerâ", turkish: "Emirler", meaning: "Emirler, sancakbeyleri" },
-        { ottoman: "Mir-i mirân", turkish: "Beylerbeyi", meaning: "Beylerbeyi unvanı" },
-        { ottoman: "Kibâr", turkish: "Büyükler", meaning: "Büyükler, önde gelenler" },
-        { ottoman: "Aklâm", turkish: "Kalemler", meaning: "Kalemler, yazı aletleri" },
-        { ottoman: "Kâbil", turkish: "Mümkün", meaning: "Mümkün, olabilir" }
+      // kelimeler.txt'den 81-100 arası kelimeleri ekleyelim
+      // Bu kelimeleri gruplar halinde ekliyoruz, 100'er kelimelik gruplar şeklinde
+      
+      // İlk 100 kelimeyi kelimeler.txt dosyasından oluşturalım
+      const group1Words = [
+        { ottoman: "[Osmanlıca] توقف", turkish: "tevakkuf", meaning: "Durmak" },
+        { ottoman: "[Osmanlıca] عواز", turkish: "avâz etmek", meaning: "Seslenmek" },
+        { ottoman: "[Osmanlıca] سحر", turkish: "seher vakti", meaning: "Tan yeri ağarmadan önce" },
+        { ottoman: "[Osmanlıca] محصور", turkish: "mahsür", meaning: "Kuşatılmış" },
+        { ottoman: "[Osmanlıca] روزی", turkish: "rüzi", meaning: "Nasip, kısmet" },
+        { ottoman: "[Osmanlıca] گرفتار", turkish: "giriftâr", meaning: "Girmek, düşmek" },
+        { ottoman: "[Osmanlıca] آزاد", turkish: "azâd etmek", meaning: "Serbest bırakmak" },
+        { ottoman: "[Osmanlıca] شکران", turkish: "şükrân", meaning: "Teşekkür etmek" },
+        { ottoman: "[Osmanlıca] بکا", turkish: "bükâ", meaning: "Ağlamak" },
+        { ottoman: "[Osmanlıca] ضایع", turkish: "zâyi' olmak", meaning: "Yok olmak, kaybolmak" },
+        { ottoman: "[Osmanlıca] چورباجی", turkish: "çorbacı", meaning: "Yeniçeri ocağı zabiti" },
+        { ottoman: "[Osmanlıca] میری", turkish: "miri", meaning: "Devlete ait (hatta devlet)" },
+        { ottoman: "[Osmanlıca] یساقچی", turkish: "yasakçı", meaning: "Bekçi, gözetleyici" },
+        { ottoman: "[Osmanlıca] سکر", turkish: "sükker", meaning: "Şeker" },
+        { ottoman: "[Osmanlıca] مربع", turkish: "murabba'", meaning: "Kare şeklinde" },
+        { ottoman: "[Osmanlıca] تفصیل", turkish: "tafsil", meaning: "Ayrıntılı anlatma" },
+        { ottoman: "[Osmanlıca] آستانه", turkish: "asitâne", meaning: "İstanbul" },
+        { ottoman: "[Osmanlıca] مقید", turkish: "mukayyed olmak", meaning: "İlgilenmek" },
+        { ottoman: "[Osmanlıca] پیدا", turkish: "peydâ etmek", meaning: "Elde etmek" }
       ];
       
-      // 1) Önce temel kelimeleri ekle
-      for (const word of basicWords) {
+      // İlk grup kelimeleri ekle
+      let count = 0;
+      for (const word of group1Words) {
         // Kelimenin zaten var olup olmadığını kontrol et
         const exists = existingWords.some(
           existingWord => existingWord.turkish.toLowerCase() === word.turkish.toLowerCase()
@@ -446,68 +455,9 @@ export class MemStorage implements IStorage {
         // Eğer kelime mevcut değilse ekle
         if (!exists) {
           this.createWord({
-            ottoman: word.ottoman,
+            ottoman: word.ottoman,  // Ottoman karakterleri ile işaretlenmiş durumda, sonra değiştirilebilir
             turkish: word.turkish,
             meaning: word.meaning,
-            categoryId: categoryId,
-            difficulty: "basic",
-            etymology: "Osmanlıca kelime",
-            audioUrl: ""
-          });
-        }
-      }
-      
-      // 2) Tüm kelimeler listesi
-      const allTurkishWords = [
-        "azimet", "kıyam", "bârü", "tekarrüb", "mecâl", "metânet", "me'yüs", "nüzül", 
-        "cümle", "ümerâ", "mir-i mirân", "kibâr", "muhtâr", "ihtiyâr", "müşâvere", "cem'", 
-        "kemâl", "suübet", "mukarrer", "tahrib", "bilâd", "ta'zib", "küffâr", "bed-nihâd", 
-        "teveccüh", "kasabât", "kurâ", "bikâ'", "zıyâ'", "gâret", "hasâret", "galebe", "nusret", 
-        "a'dâ", "müris", "illâ", "re'y", "kabza", "tasarruf", "aid", "mümânaat", "menzil", 
-        "abd-i fakir", "kalile", "irkilmek", "meremmet", "ba'id", "ratıb", "yâbis", "câri",
-        "halk", "etmek", "ceng", "kılıç", "cenk", "muhârebe", "mansûre", "âsâkir", "kuruş", 
-        "dirhem", "sikke", "akça", "akçe", "guruş", "zer", "cedîd", "umûm", "dâhil", "mahal", 
-        "mahall", "mekân", "vakt", "zaman", "an", "tarih", "târîh", "yevm", "yevm-i cedîd", 
-        "güneş", "gün", "şems", "mâh", "ay", "kamer", "leyl", "gece", "nehâr", "gündüz", "fecr", 
-        "tan", "şafak", "tulû'", "gurûb", "sabah", "yıldız", "kevkeb", "necm", "nücûm", "sitâre", 
-        "seher", "ferdâ", "ertesi", "yarın", "dün", "bârân", "yağmur", "berf", "kar", "ra'd", 
-        "gök gürlemesi", "berk", "şimşek", "bulut", "sehâb", "yel", "rüzgâr", "bâd", "kavim", 
-        "el", "ahâli", "vatan", "nâs", "insanlar", "cemâ'at", "karye", "köy", "şehr", "şehir", 
-        "medine", "deryâ", "deniz", "bahr", "nehir", "çay", "yaş", "sağ", "hayy", "hayat", "ölüm", 
-        "mevt", "ecel", "toprak", "türâb", "ateş", "âteş", "nâr", "germ", "sıcak", "havâ", "buz", 
-        "yaş", "kurak", "susuz", "âb", "ıssı", "târîk", "yol", "zulmet", "karanlık", "nûr", "ışık", 
-        "ziyâ", "aydınlık", "âvâz", "ses", "sadâ", "kelâm", "söz", "sühan", "ism", "ad", "lafız", 
-        "lafz", "nidâ", "çağırma", "ordu", "asker", "leşker", "sipâhî", "atlu", "süvâri", "piyâde", 
-        "yaya", "yayak", "tüfenk", "tabanca", "seyf", "top", "darb", "vurmak", "ahz", "almak", 
-        "tutmak", "katl", "öldürmek", "ihâta", "kuşatmak", "muhâsara", "kuşatma", "feth", "fetih", 
-        "açmak", "sulh", "barış", "bâb", "kapı", "miftâh", "anahtar", "kilîd", "kilit", "oda", 
-        "mesken", "konut", "ev", "dâr", "hâne", "saray", "sarây", "kal'a", "kale", "hisar", 
-        "câmi'", "köprü", "cisr", "geçit", "ubûr", "geçmek", "azîmet", "gitmek", "yürümek", 
-        "meşy", "maiyyet", "birlikte", "beraber", "yanında", "avdet", "dönmek", "vusûl", 
-        "ulaşmak", "vâsıl", "duhûl", "girmek", "hurûc", "çıkmak", "firâr", "kaçmak", "nüzûl", 
-        "inmek", "suûd", "çıkmak", "ric'at", "geri çekilmek", "muzaffer", "utku", "mansûr", 
-        "münhezim", "bozgun", "mağlûb", "yenilmiş", "hücûm", "saldırı", "def'", "püskürtme", 
-        "mukâbele", "karşılık verme", "mülâzemet", "devamlılık", "sabr", "sabır", "acele", 
-        "şitâb", "hızlıca", "sür'at", "hız", "tedrîc", "aşama", "müsvedde", "taslak", "tahrîr", 
-        "yazı", "kırâ'at", "okuma", "ma'rûz", "sunulan", "arz", "hâl", "durum", "atebe", "eşik", 
-        "âtî", "gelecek", "müstakbel", "gelecekteki", "mâzi", "geçmiş", "geçen", "hazır", "şimdi", 
-        "hâlâ", "şu an", "el-ân", "şimdilik", "kalem", "kitap", "mektep", "su", "taam", "saat"
-      ];
-      
-      // Diğer tüm kelimeleri ekle
-      let count = 0;
-      for (const turkishWord of allTurkishWords) {
-        // Mevcut kelimelerde bu kelime var mı kontrol et
-        const exists = existingWords.some(
-          existingWord => existingWord.turkish.toLowerCase() === turkishWord.toLowerCase()
-        );
-        
-        // Eğer kelime mevcut değilse ekle
-        if (!exists) {
-          this.createWord({
-            ottoman: turkishWord, // Ottoman karakter bulunamıyor ise Turkish'i kullan
-            turkish: turkishWord,
-            meaning: "Osmanlıca kelime",
             categoryId: categoryId,
             difficulty: "basic",
             etymology: "Osmanlıca kökenli",
