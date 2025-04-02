@@ -406,6 +406,82 @@ export class MemStorage implements IStorage {
       username: "demo",
       password: "password123"
     });
+    
+    // Add additional words from kelimeler.txt
+    this.addAdditionalWords(basicCategory.id);
+  }
+  
+  private addAdditionalWords(categoryId: number) {
+    // Kelimeler.txt dosyasındaki kelimeleri ekle
+    // Kelime-anlam çiftleri şeklinde yapılandırılmış
+    const additionalWords = [
+      { ottoman: "Azimet", turkish: "Gitmek", meaning: "Gitmek eylemi" },
+      { ottoman: "Kıyam", turkish: "Başlamak", meaning: "Başlamak, harekete geçmek" },
+      { ottoman: "Bârü", turkish: "Duvar", meaning: "Duvar, burç" },
+      { ottoman: "Tekarrüb", turkish: "Yaklaşmak", meaning: "Yaklaşmak eylemi" },
+      { ottoman: "Mecâl", turkish: "İmkan", meaning: "İmkânı olmamak" },
+      { ottoman: "Metânet", turkish: "Sertlik", meaning: "Sertlik, dayanıklılık" },
+      { ottoman: "Me'yüs", turkish: "Üzgün", meaning: "Üzgün, ümitsiz" },
+      { ottoman: "Nüzül", turkish: "İnmek", meaning: "İnmek eylemi" },
+      { ottoman: "Cümle", turkish: "Bütün", meaning: "Bütün, tamamı" },
+      { ottoman: "Ümerâ", turkish: "Emirler", meaning: "Emirler, sancakbeyleri" },
+      { ottoman: "Mir-i mirân", turkish: "Beylerbeyi", meaning: "Beylerbeyi unvanı" },
+      { ottoman: "Kibâr", turkish: "Büyükler", meaning: "Büyükler, önde gelenler" },
+      { ottoman: "Muhtâr", turkish: "Seçilmiş", meaning: "Seçilmiş, seçkin" },
+      { ottoman: "İhtiyâr", turkish: "Kıdemli", meaning: "Kıdemli, yaşlı" },
+      { ottoman: "Müşâvere", turkish: "Danışmak", meaning: "Danışmak eylemi" },
+      { ottoman: "Cem'", turkish: "Toplanmak", meaning: "Toplanmak eylemi" },
+      { ottoman: "Kemâl", turkish: "Tam", meaning: "Tam, bütün, eksiksiz" },
+      { ottoman: "Suübet", turkish: "Zorluk", meaning: "Zorluk, meşakkat" },
+      { ottoman: "Mukarrer", turkish: "Açık", meaning: "Açık, ortada olmak" },
+      { ottoman: "Tahrib", turkish: "Zarar", meaning: "Zarar vermek" },
+      { ottoman: "Bilâd", turkish: "Beldeler", meaning: "Beldeler, şehirler" },
+      { ottoman: "Ta'zib", turkish: "Acı", meaning: "Acı çektirmek" },
+      { ottoman: "Küffâr", turkish: "Kafirler", meaning: "Kâfirler, düşmanlar" },
+      { ottoman: "Bed-nihâd", turkish: "Kötü", meaning: "Kötü huylu" },
+      { ottoman: "Teveccüh", turkish: "Yönelmek", meaning: "Yönelmek eylemi" },
+      { ottoman: "Kasabât", turkish: "Kasabalar", meaning: "Kasabalar, küçük şehirler" },
+      { ottoman: "Kurâ", turkish: "Köyler", meaning: "Karyeler, köyler" },
+      { ottoman: "Bikâ'", turkish: "Yerler", meaning: "Buk'alar, yerler, ülkeler" },
+      { ottoman: "Zıyâ'", turkish: "Tarlalar", meaning: "Zay'alar, tarlalar" },
+      { ottoman: "Gâret", turkish: "Yağma", meaning: "Yağma, talan" },
+      { ottoman: "Hasâret", turkish: "Hasar", meaning: "Hasar verme eylemi" },
+      { ottoman: "Galebe", turkish: "Üstünlük", meaning: "Üstünlük, zafer" },
+      { ottoman: "Nusret", turkish: "Yardım", meaning: "İlahi yardım" },
+      { ottoman: "A'dâ", turkish: "Düşmanlar", meaning: "Düşmanlar, hasımlar" },
+      { ottoman: "Müris", turkish: "Getiren", meaning: "Getiren, neden olan" },
+      { ottoman: "İllâ", turkish: "Ancak", meaning: "Ancak, ... hariç" },
+      { ottoman: "Re'y", turkish: "Görüş", meaning: "Görüş, kanaat" },
+      { ottoman: "Kabza", turkish: "El", meaning: "El, hakimiyet" },
+      { ottoman: "Tasarruf", turkish: "Kullanma", meaning: "Kullanma, sahip olma" },
+      { ottoman: "Aid", turkish: "Dönen", meaning: "Dönen, kalan" },
+      { ottoman: "Mümânaat", turkish: "Engelleme", meaning: "Engelleme eylemi" },
+      { ottoman: "Menzil", turkish: "Konak", meaning: "Konak, durak" },
+      { ottoman: "Abd-i Fakir", turkish: "Aciz", meaning: "Aciz kul, yazarın kendisi" },
+      { ottoman: "Kalile", turkish: "Az", meaning: "Az, küçük" },
+      { ottoman: "İrkilmek", turkish: "Toplanmak", meaning: "Toplanmak eylemi" },
+      { ottoman: "Meremmet", turkish: "Tamir", meaning: "Tamir, onarım" },
+      { ottoman: "Ba'id", turkish: "Uzak", meaning: "Uzak, ırak" },
+      { ottoman: "Ratıb", turkish: "Yumuşak", meaning: "Yumuşak, nemli" },
+      { ottoman: "Yâbis", turkish: "Kuru", meaning: "Kuru, sert" },
+      { ottoman: "Câri", turkish: "Akmak", meaning: "Akmak, yürürlükte olmak" },
+      { ottoman: "Halk", turkish: "Yaratmak", meaning: "Yaratmak eylemi" },
+      { ottoman: "Aklâm", turkish: "Kalemler", meaning: "Kalemler, yazı aletleri" },
+      { ottoman: "Kâbil", turkish: "Mümkün", meaning: "Mümkün, olabilir" }
+    ];
+    
+    // Her ek kelime için
+    for (const word of additionalWords) {
+      this.createWord({
+        ottoman: word.ottoman,
+        turkish: word.turkish,
+        meaning: word.meaning,
+        categoryId: categoryId,
+        difficulty: "basic",
+        etymology: "Osmanlıca kelime",
+        audioUrl: ""
+      });
+    }
   }
 
   // User operations
